@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form method = post enctype = multipart/form-data>
+            <input type=file name = file>
+            <input type = submit value = Upload>
+        </form>
+        <div>
+          <img src="{{ UPLOAD_FOLDER }}/{{ filename }}" style="margin-top: 10px; vertical-align: bottom; width: 200px;">
+          {{ filename }} : {{ result }}
+        </div>
+    </body>
+</html>            

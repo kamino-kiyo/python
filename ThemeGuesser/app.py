@@ -113,11 +113,6 @@ def upload():
             # 入力画像を判定結果を一緒に表示させるページに遷移
             return render_template('result.html', UPLOAD_FOLDER = UPLOAD_FOLDER, filename = filename, result = result)
         
-            
-            # これあとで消す（かこれを改造して判定結果表示させる）
-            # アップロード後のページに転送
-#             return redirect(url_for('uploaded_file', filename=filename))
-
     # GET時に表示されるページ
     return '''
     <html>
@@ -136,25 +131,7 @@ def upload():
 # ファイルを表示する
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-#     return '''
-# {% block content %}
 
-# <form action="/upload" method="post" enctype="multipart/form-data">
-#   <input type="file" name="image" accept="image/png, image/jpeg">
-#   <button type="submit">submit</button>
-# </form>
-
-# {% if uploads %}
-#   {% for path in uploads %}
-#     <div>
-#       <img src="uploads/{{ path }}" style="margin-top: 10px; vertical-align: bottom; width: 200px;">
-#       {{ path }}
-#     </div>
-#   {% endfor %}
-# {% endif %}
-
-# {% endblock %}
-# '''
 
 if __name__ == '__main__':
     app.debug = True
